@@ -1,4 +1,5 @@
 # NG-SideWalk
+- Conceptual code, but it works perfect like it should.
 - NG-SideWalk is an advanced network scanner designed to perform stealthy scans on both internal and public-facing IP networks while evading detection by firewalls, IDS/IPS, and other security measures. The name "NG-SideWalk" reflects the scanner's ability to navigate alongside traditional network security measures, effectively finding pathways (or "sidewalks") into protected networks without triggering alarms.
 
 # Why 
