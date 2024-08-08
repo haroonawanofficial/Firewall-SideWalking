@@ -33,47 +33,30 @@ The scanner not only detects open ports and services but also recommends the bes
 
 # Output
 
-```bash
-+-------------------------+--------------+--------+----------+---------------------+
-| Scan Type               | IP           |   Port | Result   | Firewall Detected   |
-+=========================+==============+========+==========+=====================+
-| Reverse IP Scan         | 172.67.27.10 |     80 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom IP Options Scan  | 172.67.27.10 |     80 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| ICMP Source Quench Scan | 172.67.27.10 |     80 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom TCP Option Scan  | 172.67.27.10 |     80 | Open     | No                  |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom Payload TCP Scan | 172.67.27.10 |     80 | Open     | No                  |
-+-------------------------+--------------+--------+----------+---------------------+
-| TCP SYN Scan            | 172.67.27.10 |     80 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| Reverse IP Scan         | 172.67.27.10 |    443 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom IP Options Scan  | 172.67.27.10 |    443 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| ICMP Source Quench Scan | 172.67.27.10 |    443 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom TCP Option Scan  | 172.67.27.10 |    443 | Open     | No                  |
-+-------------------------+--------------+--------+----------+---------------------+
-| Custom Payload TCP Scan | 172.67.27.10 |    443 | Open     | No                  |
-+-------------------------+--------------+--------+----------+---------------------+
-| TCP SYN Scan            | 172.67.27.10 |    443 | Filtered | Yes                 |
-+-------------------------+--------------+--------+----------+---------------------+
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| Infiltration Method     | Layer   | Use Case                                                           | Supports         |
-+=========================+=========+====================================================================+==================+
-| TCP SYN Scan            | Layer 4 | Detects open ports and firewall presence                           | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| Custom TCP Option Scan  | Layer 4 | Bypasses some filters with unusual TCP options                     | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| Custom Payload TCP Scan | Layer 4 | Bypasses some filters with non-standard payloads                   | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| ICMP Source Quench Scan | Layer 3 | Bypasses some filters with ICMP packets                            | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| Reverse IP Scan         | Layer 3 | Confuses detection systems with source and destination IP the same | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-| Custom IP Options Scan  | Layer 3 | Bypasses filters with custom IP options                            | Network Commands |
-+-------------------------+---------+--------------------------------------------------------------------+------------------+
-```
++-------------------------+---------------+--------+-----------+---------------------+
+| Scan Type               | IP            | Port   | Result    | Firewall Detected   |
++=========================+===============+========+===========+=====================+
+| Reverse IP Scan         | 104.22.55.228 | 80     | Filtered  | Yes                 |
+| Custom IP Options Scan  | 104.22.55.228 | 80     | Filtered  | Yes                 |
+| ICMP Source Quench Scan | 104.22.55.228 | 80     | Filtered  | Yes                 |
+| Custom TCP Option Scan  | 104.22.55.228 | 80     | Open      | No                  |
+| Custom Payload TCP Scan | 104.22.55.228 | 80     | Open      | No                  |
+| Reverse IP Scan         | 104.22.55.228 | 443    | Filtered  | Yes                 |
+| Custom IP Options Scan  | 104.22.55.228 | 443    | Filtered  | Yes                 |
+| ICMP Source Quench Scan | 104.22.55.228 | 443    | Filtered  | Yes                 |
+| Custom TCP Option Scan  | 104.22.55.228 | 443    | Open      | No                  |
+| Custom Payload TCP Scan | 104.22.55.228 | 443    | Open      | No                  |
++-------------------------+---------------+--------+-----------+---------------------+
+
++-------------------------+--------+----------------------------------------------+-----------------+
+| Infiltration Method     | Layer  | Use Case                                     | Supports        |
++=========================+========+==============================================+=================+
+| TCP SYN Scan            | Layer 4| Detects open ports and firewall presence     | Network Commands|
+| Custom TCP Option Scan  | Layer 4| Bypasses some filters with unusual TCP options| Network Commands|
+| Custom Payload TCP Scan | Layer 4| Bypasses some filters with non-standard payloads| Network Commands|
+| ICMP Source Quench Scan | Layer 3| Bypasses some filters with ICMP packets      | Network Commands|
+| Reverse IP Scan         | Layer 3| Confuses detection systems with same IP      | Network Commands|
+| Custom IP Options Scan  | Layer 3| Bypasses filters with custom IP options      | Network Commands|
+| Mutated Payload Scan    | Layer 4| Confuses security systems with varying payloads| Network Commands|
+| SSL Encrypted Scan      | Layer 4| Looks like legitimate SSL traffic            | Network Commands|
++-------------------------+--------+----------------------------------------------+-----------------+
