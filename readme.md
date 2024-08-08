@@ -29,26 +29,51 @@
 The scanner not only detects open ports and services but also recommends the best approaches to infiltrate protected networks based on the scan results.
 
 # Usage
-- sudo python ng-sidewalk.py --target example.com,192.168.1.0/24 --ports 80,443 --threads 10 --spoof-ip 203.0.113.1 --rate 2.0
+- sudo python ng-sidewalk.py --target example,192.168.1.0/24 --ports 80,443 --threads 10 --spoof-ip 203.0.113.1 --rate 2.0
 
 # Output
 
 ```bash
-2024-08-08 14:30:00 - Number of targets entered: 257
-2024-08-08 14:30:00 - Targets: google.com, 192.168.1.0/24
-2024-08-08 14:30:00 - Number of ports entered: 2
-2024-08-08 14:30:00 - Enumerating Ports: 80, 443
-
-+------------------------+------------------+-------+----------+------------------+---------------------------------------------------+
-| Scan Type              | IP               | Port  | Success  | Firewall Detected| Infiltration Method                                 |
-+------------------------+------------------+-------+----------+------------------+---------------------------------------------------+
-| Reverse IP Scan        | 142.250.64.78    | 80    | Yes      | No               | Use this scan method to infiltrate and bind a virus or port |
-| Custom IP Options Scan | 142.250.64.78    | 443   | Yes      | No               | Use this scan method to infiltrate and bind a virus or port |
-| ICMP Source Quench Scan| 192.168.1.1      | 80    | No       | Yes              | Try other evasion techniques                        |
-| Custom TCP Option Scan | 192.168.1.1      | 443   | No       | Yes              | Try other evasion techniques                        |
-| Custom Payload TCP Scan| 192.168.1.2      | 80    | Yes      | No               | Use this scan method to infiltrate and bind a virus or port |
-| Stealth Scan           | 192.168.1.3      | 80    | Yes      | No               | Use this scan method to infiltrate and bind a virus or port |
-+------------------------+------------------+-------+----------+------------------+---------------------------------------------------+
-
-2024-08-08 14:40:00 - Scanning completed.
++-------------------------+--------------+--------+----------+---------------------+
+| Scan Type               | IP           |   Port | Result   | Firewall Detected   |
++=========================+==============+========+==========+=====================+
+| Reverse IP Scan         | 172.67.27.10 |     80 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom IP Options Scan  | 172.67.27.10 |     80 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| ICMP Source Quench Scan | 172.67.27.10 |     80 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom TCP Option Scan  | 172.67.27.10 |     80 | Open     | No                  |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom Payload TCP Scan | 172.67.27.10 |     80 | Open     | No                  |
++-------------------------+--------------+--------+----------+---------------------+
+| TCP SYN Scan            | 172.67.27.10 |     80 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| Reverse IP Scan         | 172.67.27.10 |    443 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom IP Options Scan  | 172.67.27.10 |    443 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| ICMP Source Quench Scan | 172.67.27.10 |    443 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom TCP Option Scan  | 172.67.27.10 |    443 | Open     | No                  |
++-------------------------+--------------+--------+----------+---------------------+
+| Custom Payload TCP Scan | 172.67.27.10 |    443 | Open     | No                  |
++-------------------------+--------------+--------+----------+---------------------+
+| TCP SYN Scan            | 172.67.27.10 |    443 | Filtered | Yes                 |
++-------------------------+--------------+--------+----------+---------------------+
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| Infiltration Method     | Layer   | Use Case                                                           | Supports         |
++=========================+=========+====================================================================+==================+
+| TCP SYN Scan            | Layer 4 | Detects open ports and firewall presence                           | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| Custom TCP Option Scan  | Layer 4 | Bypasses some filters with unusual TCP options                     | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| Custom Payload TCP Scan | Layer 4 | Bypasses some filters with non-standard payloads                   | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| ICMP Source Quench Scan | Layer 3 | Bypasses some filters with ICMP packets                            | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| Reverse IP Scan         | Layer 3 | Confuses detection systems with source and destination IP the same | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
+| Custom IP Options Scan  | Layer 3 | Bypasses filters with custom IP options                            | Network Commands |
++-------------------------+---------+--------------------------------------------------------------------+------------------+
 ```
