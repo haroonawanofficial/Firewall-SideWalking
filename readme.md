@@ -32,7 +32,7 @@ The scanner not only detects open ports and services but also recommends the bes
 - sudo python ng-sidewalk.py --target example,192.168.1.0/24 --ports 80,443 --threads 10 --spoof-ip 203.0.113.1 --rate 2.0
 
 # Output
-
+```bash
 +-------------------------+---------------+--------+-----------+---------------------+
 | Scan Type               | IP            | Port   | Result    | Firewall Detected   |
 +=========================+===============+========+===========+=====================+
@@ -60,3 +60,10 @@ The scanner not only detects open ports and services but also recommends the bes
 | Mutated Payload Scan    | Layer 4| Confuses security systems with varying payloads| Network Commands|
 | SSL Encrypted Scan      | Layer 4| Looks like legitimate SSL traffic            | Network Commands|
 +-------------------------+--------+----------------------------------------------+-----------------+
+```
+
+# R&D
+Haroon Ahmad Awan
+
+# Contact
+haroon@cyberzeus.pk
